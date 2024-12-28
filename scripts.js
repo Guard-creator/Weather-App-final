@@ -2,12 +2,22 @@ const cityInput = document.querySelector('.city-input');
 const weatherCont = document.querySelector('.weather-details');
 const apiKey = '21dbcae76ac535083e1321b43461e1e9';
 
-let city = '';
+let city = JSON.parse(localStorage.getItem('city')) || 'London';
+
+loadWeatherData();
+
+async function loadWeatherData() {
+  const weatherDate = await getWeatherData(city);
+  displayWeatherData(weatherDate);
+}
+
 
 document.querySelector('.search-btn')
   .addEventListener('click', async () => {
 
       city = cityInput.value;
+
+      localStorage.setItem('city', JSON.stringify(city));
 
     try {
       if(city) {
