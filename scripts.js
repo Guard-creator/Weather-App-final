@@ -1,16 +1,18 @@
 const cityInput = document.querySelector('.city-input');
 const weatherCont = document.querySelector('.weather-details');
 const apiKey = '21dbcae76ac535083e1321b43461e1e9';
+let currentUnit = 'metric'; //'metric' for Celsius, 'imperial' for Fahrenheit
+let currenctTemperature = null; // To store the temperature in Celsius
 
 let city = JSON.parse(localStorage.getItem('city')) || 'London';
 
 loadWeatherData();
 
+// display the weather forcast when page loaded
 async function loadWeatherData() {
   const weatherDate = await getWeatherData(city);
   displayWeatherData(weatherDate);
 }
-
 
 document.querySelector('.search-btn')
   .addEventListener('click', async () => {
@@ -31,6 +33,19 @@ document.querySelector('.search-btn')
     }
 
     cityInput.value = '';
+
+  })
+
+// To change the temperature unit
+document.querySelector('.toggle-btn')
+  .addEventListener('click', () => {
+
+    currentUnit = currentUnit === 'metric' ? 'Imperial' : 'metric';
+
+    const unitbtn = document.querySelector('.toggle-btn');
+    unitbtn.textContent = currentUnit === 'metric' ? 'Switch to °C' : 'Switch to °F';
+
+    loadWeatherData();
 
   })
 
@@ -58,9 +73,14 @@ function displayWeatherData(weatherData) {
          wind: {speed},
          sys: {sunrise, sunset},
         dt} = weatherData;
-
+        
+  // Store the temperature in its original unit (Celsius)
+  currenctTemperature = temp;
   
-  const tempDisplay = `${(temp).toFixed(0)}°C`
+  const tempDisplay = currentUnit === 'metric'
+  ? `${(temp).toFixed(0)}°C`
+  : `${((temp * 9/5) + 32).toFixed(0)}°F`;
+
   const windSpeed = Math.round(speed);
   const isDayTime = dt >= sunrise && dt < sunset;
 
