@@ -1,0 +1,151 @@
+/* Global Styles */
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, #1b1b1b, #000000);
+  color: #00ffea;
+}
+
+
+
+.weather-container {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid #00ffea;
+  overflow: hidden;
+  border-radius: 15px;
+  padding: 20px 30px 20px 30px;
+  box-shadow: 0 0 20px #00ffea, 0 0 30px #00ffea;
+  height: 450px;
+  width: fit-content;
+  text-align: center;
+}
+
+#search-bar-dev {
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.toggle-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #ff007f;
+  color: #1a1a2e;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff007f;
+}
+
+.city-input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  background: #0f0f2e;
+  color: #00ffea;
+  box-shadow: inset 0 0 5px #00ffea;
+}
+
+.search-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #00ffea;
+  color: #1a1a2e;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #00ffea;
+}
+
+.weather-emoji {
+  font-size: 4rem;
+}
+
+.temp-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff007f;
+  text-shadow: 0 0 2px #ff007f, 0 0 20px #ff007f;
+}
+
+.desc-display {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 10px 0;
+  color: #00ffea;
+}
+
+.city-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 0 0 2px #ff007f, 0 0 20px #ff007f;
+  color: #ff007f;
+}
+
+.atmosphere-dev {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.humidity-display {
+  font-size: 1rem;
+  width: 100px;
+  padding: 6px;
+  margin: 0;
+  color: #00ffea;
+  border: 2px solid #00ffea;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #00ffea;
+}
+
+.windspeed-display {
+  font-size: 1rem;
+  width: 100px;
+  padding: 6px;
+  margin: 0;
+  color: #00ffea;
+  border: 2px solid #00ffea;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #00ffea;
+}
+
+@media (max-width: 768px) {
+  .weather-container {
+    padding: 15px 20px;
+  }
+
+  #search-bar-dev {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .city-input,
+  .search-btn {
+    width: 100%;
+  }
+
+  .atmosphere-dev {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
